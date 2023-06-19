@@ -8,4 +8,6 @@ import org.springframework.stereotype.Repository;
 @EnableJpaRepositories
 @Repository
 public interface MathEqRepository extends JpaRepository<MathematicalEquation, Long> {
+
+    MathematicalEquation findByEquationroot1(double root);
 }

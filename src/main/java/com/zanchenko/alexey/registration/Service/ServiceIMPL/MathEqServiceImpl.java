@@ -67,47 +67,10 @@ public class MathEqServiceImpl implements MathEqService {
         return !Pattern.compile(pattern).matcher(equation).find();
     }
 
-
-//    private boolean isRootOfEquation(MathematicalEquation equation) {
-//        double root1 = equation.getEquationroot1();
-//        double root2 = equation.getEquationroot2();
-//        String equationString = equation.getMathematicalequation();
-//        // Evaluate the equation with the provided roots
-//        double result1 = evaluateEquation(equationString, root1);
-//        double result2 = evaluateEquation(equationString, root2);
-//        // Check if the results are close to zero (considering a tolerance)
-//        double tolerance = 0.001; // Adjust the tolerance value as needed
-//        return Math.abs(result1) < tolerance && Math.abs(result2) < tolerance;
-//    }
-//
-//    private double evaluateEquation(String equation, double x) {
-//        // Replace 'x' with the provided root value and evaluate the equation
-//        equation = equation.replace("x", Double.toString(x));
-//        // Evaluate the equation using a math expression parser or your preferred method
-//        // Return the result of the evaluation
-//        return evaluateExpression(equation);
-//    }
-//
-//    // Implement your own method to evaluate the math expression
-//    private double evaluateExpression(String expression) {
-//        ScriptEngineManager manager = new ScriptEngineManager();
-//        ScriptEngine engine = manager.getEngineByName("JavaScript");
-//
-//        if (engine == null) {
-//            throw new UnsupportedOperationException("JavaScript engine is not available.");
-//        }
-//
-//        try {
-//            Object result = engine.eval(expression);
-//            if (result instanceof Number) {
-//                return ((Number) result).doubleValue();
-//            } else {
-//                throw new IllegalArgumentException("Invalid expression result.");
-//            }
-//        } catch (ScriptException e) {
-//            throw new IllegalArgumentException("Invalid expression.", e);
-//        }
-//    }
+    @Override
+    public MathematicalEquation findByEquationroot1(double root) {
+        return mathEqRepository.findByEquationroot1(root);
+    }
 
 
 }

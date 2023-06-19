@@ -7,6 +7,7 @@ import com.zanchenko.alexey.registration.Service.MathEqService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.regex.Pattern;
 
 @Service
@@ -68,9 +69,8 @@ public class MathEqServiceImpl implements MathEqService {
     }
 
     @Override
-    public MathematicalEquation findByEquationroot1(double root) {
-        return mathEqRepository.findByEquationroot1(root);
+    public List<MathematicalEquation> findAllByEquationroot1(double root) {
+        return mathEqRepository.findAllByEquationroot1(root);
     }
-
 
 }

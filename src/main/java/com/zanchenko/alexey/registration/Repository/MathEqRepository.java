@@ -5,9 +5,11 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @EnableJpaRepositories
 @Repository
 public interface MathEqRepository extends JpaRepository<MathematicalEquation, Long> {
 
-    MathematicalEquation findByEquationroot1(double root);
+    List<MathematicalEquation> findAllByEquationroot1(double root);
 }

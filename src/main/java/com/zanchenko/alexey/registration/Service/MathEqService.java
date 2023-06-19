@@ -3,6 +3,8 @@ package com.zanchenko.alexey.registration.Service;
 import com.zanchenko.alexey.registration.DTO.MathematicalEquationDTO;
 import com.zanchenko.alexey.registration.Entity.MathematicalEquation;
 
+import java.util.List;
+
 public interface MathEqService{
     String save(MathematicalEquationDTO mathematicalEquationDTO);
 
@@ -12,5 +14,5 @@ public interface MathEqService{
 
     boolean isValidExpression(String equation);
 
-    MathematicalEquation findByEquationroot1(double root);
+    List<MathematicalEquation> findAllByEquationroot1(double root);
 }

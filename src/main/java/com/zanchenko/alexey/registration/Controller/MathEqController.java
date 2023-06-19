@@ -23,11 +23,13 @@ public class MathEqController {
     }
 
     @GetMapping("/search")
-    public MathematicalEquation search(@RequestParam("query") double query) {
-        // Implement your search logic here
-        // For example, you can query the database or perform any other search operation
-        // Return the search results as a list of SearchResult objects
-        MathematicalEquation equation = mathEqService.findByEquationroot1(query);
-        return equation;
+    public List<MathematicalEquation> search(@RequestParam("query") double query) {
+        List<MathematicalEquation> equations = mathEqService.findAllByEquationroot1(query);
+        if (equations != null) {
+            return equations;
+        } else {
+            System.out.println("empty");
+            return null; // Or return an appropriate response
+        }
     }
 }
